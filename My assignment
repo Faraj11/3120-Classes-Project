@@ -1,1 +1,31 @@
+class Animal:
+    def __init__(self, name, habitat, prey, population):
+        self.name = name
+        self.habitat = habitat
+        self.prey = prey
+        self.population = population
+        
+    def species(self):
+        print('This animal is a', self.name)
+
+    def details(self):
+        print('The', self.name, 'has a population of', self.population, 'and they live in a', self.habitat)
+        print('The', self.prey, 'is the main food source for a', self.name)
+
+class Dog(Animal):
+    def __init__(self, name, habitat, prey, population, breed, is_domesticated):
+        # Call the parent class's constructor
+        super().__init__(name, habitat, prey, population)
+        # Add additional attributes specific to Dog
+        self.breed = breed
+        self.is_domesticated = is_domesticated
+
+    def bark(self):
+        print(f"The {self.name} says: Woof! Woof!")
+
+    def details(self):
+        # Override the parent class's details method
+        super().details()  # Optionally call the parent method
+        print(f"It is of the {self.breed} breed.")
+        print(f"Domesticated: {'Yes' if self.is_domesticated else 'No'}")
 
